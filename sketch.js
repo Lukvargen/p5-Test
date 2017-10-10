@@ -9,6 +9,7 @@ var buttonMargin = 10;
 var buttonWidth = 180;
 var buttonHeight = 50;
 
+var doStroke = true;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -25,6 +26,15 @@ function draw() {
 		heightProcent = (mouseY / windowHeight)
 		//noStroke();
 		smooth();
+
+		if (doStroke){
+			stroke(0,0,0);
+		} else{
+			noStroke();
+		}
+
+
+
 		//fill(created, created, created);
 		fill(255 * heightProcent)
 		print (heightProcent + "asdasd" + 0/windowHeight * 1.0)
@@ -72,6 +82,7 @@ function mousePressed(){
 	if (mouseX > buttonMargin && mouseX < buttonMargin + buttonWidth &&
 		mouseY > buttonMargin && mouseY < buttonMargin + buttonHeight){
 		print("Clicked")
+		doStroke = !doStroke;
 	}
 }
 
